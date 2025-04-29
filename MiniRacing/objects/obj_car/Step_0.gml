@@ -1,49 +1,32 @@
-// Step Event obj_car
+// obj_car - Step Event
 
-// Ovládání dopředu/dozadu
-if (keyboard_check(vk_up) || keyboard_check(ord("W")))
-{
-    speed += accel;
+// Ovládání auta
+if (keyboard_check(vk_up)) {
+    speed += acceleration;
 }
-if (keyboard_check(vk_down) || keyboard_check(ord("S")))
-{
-    speed -= accel;
+if (keyboard_check(vk_down)) {
+    speed -= acceleration;
 }
 
-// Omezení maximální rychlosti
-if (speed > max_speed)
-{
+// Omezení rychlosti
+if (speed > max_speed) {
     speed = max_speed;
 }
-if (speed < -max_speed/2)
-{
-    speed = -max_speed/2;
+if (speed < -max_speed * 0.5) {
+    speed = -max_speed * 0.5;
 }
 
-// Ovládání zatáčení
-if (speed != 0)
-{
-    var turn_dir = (speed > 0) ? 1 : -1; // pokud couváme, obrátíme směr zatáčení
-    if (keyboard_check(vk_left) || keyboard_check(ord("A")))
-    {
-        dir -= turn_speed * turn_dir;
-    }
-    if (keyboard_check(vk_right) || keyboard_check(ord("D")))
-    {
-        dir += turn_speed * turn_dir;
-    }
+// Otáčení jen při pohybu
+if (keyboard_check(vk_left)) {
+    direction -= turn_speed * (speed / max_speed);
+}
+if (keyboard_check(vk_right)) {
+    direction += turn_speed * (speed / max_speed);
 }
 
 // Pohyb auta
-x += lengthdir_x(speed, dir);
-y += lengthdir_y(speed, dir);
+x += lengthdir_x(speed, direction);
+y += lengthdir_y(speed, direction);
 
-// Tření (friction)
-if (speed > 0)
-{
-    speed = max(speed - friction, 0);
-}
-else if (speed < 0)
-{
-    speed = min(speed + friction, 0);
-}
+//Tření (zpomalení)
+speed = lerp(speed, 0, friction);
