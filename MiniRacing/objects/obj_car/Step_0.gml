@@ -26,6 +26,7 @@ if (keyboard_check(vk_right)) {
 // Pohyb auta
 x += lengthdir_x(speed, direction);
 y += lengthdir_y(speed, direction);
+
     
 	if (lap < max_laps) {
         lap_time += 1/room_speed;
@@ -70,3 +71,12 @@ if(gr != noone){
 speed *= 0.5;
 
 }
+var br = instance_place(x, y, obj_barier); //když narazí do briéry odrazí ho to
+if (br != noone) {
+  
+    speed *= -0.4;
+
+    // audio_play_sound(snd_bump, 1, false);
+}
+
+
