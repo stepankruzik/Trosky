@@ -39,6 +39,7 @@
     {"id":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},},
     {"id":{"name":"obj_countdown","path":"objects/obj_countdown/obj_countdown.yy",},},
     {"id":{"name":"obj_grass","path":"objects/obj_grass/obj_grass.yy",},},
+    {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
     {"id":{"name":"obj_track","path":"objects/obj_track/obj_track.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"spr_car","path":"sprites/spr_car/spr_car.yy",},},

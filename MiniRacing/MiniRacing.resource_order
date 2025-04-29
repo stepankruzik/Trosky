@@ -20,6 +20,7 @@
     {"name":"obj_checkpoint","order":3,"path":"objects/obj_checkpoint/obj_checkpoint.yy",},
     {"name":"obj_countdown","order":4,"path":"objects/obj_countdown/obj_countdown.yy",},
     {"name":"obj_grass","order":2,"path":"objects/obj_grass/obj_grass.yy",},
+    {"name":"obj_hud","order":5,"path":"objects/obj_hud/obj_hud.yy",},
     {"name":"obj_track","order":1,"path":"objects/obj_track/obj_track.yy",},
     {"name":"spr_checkpoint_on","order":5,"path":"sprites/spr_checkpoint_on/spr_checkpoint_on.yy",},
     {"name":"spr_checkpoint","order":4,"path":"sprites/spr_checkpoint/spr_checkpoint.yy",},

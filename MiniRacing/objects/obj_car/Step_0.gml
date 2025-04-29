@@ -26,6 +26,11 @@ if (keyboard_check(vk_right)) {
 // Pohyb auta
 x += lengthdir_x(speed, direction);
 y += lengthdir_y(speed, direction);
+    
+	if (lap < max_laps) {
+        lap_time += 1/room_speed;
+        total_time += 1/room_speed;
+    }
 }
 //Tření (zpomalení)
 speed = lerp(speed, 0, friction);
@@ -33,29 +38,32 @@ speed = lerp(speed, 0, friction);
 
 var cp = instance_place(x, y, obj_checkpoint);
 if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
-    // Aktivace checkpointu
-    cp.activated        = true;
-    cp.activation_timer = cp.activation_time_max;
-    cp.sprite_index     = spr_checkpoint_on; // Změna sprite na aktivovaný
+    cp.activated = true;
+    cp.sprite_index = spr_checkpoint_on;
+    current_checkpoint++;
+    
+    show_debug_message("Checkpoint " + string(current_checkpoint-1) + " aktivován");
 
-    // Posun na další checkpoint
-    current_checkpoint += 1;
-    show_debug_message("Projet checkpoint " + string(cp.checkpoint_id));
-
-    // Kontrola dokončení kola
+    // Kontrola kola
     if (current_checkpoint >= total_checkpoints) {
-        lap += 1;
+        lap_times[lap] = lap_time;
+        lap++;
+        lap_time = 0;
         current_checkpoint = 0;
-        show_debug_message("Dokončeno kolo " + string(lap));
-
-        // Reset všech checkpointů
+        
+        // Reset checkpointů
         with (obj_checkpoint) {
             activated = false;
-            activation_timer = 0;
             sprite_index = spr_checkpoint;
+        }
+        
+        if (lap >= max_laps) {
+            can_move = false;
+            show_debug_message("Konec závodu!");
         }
     }
 }
+
 
 var gr = instance_place(x, y, obj_grass);
 if(gr != noone){
