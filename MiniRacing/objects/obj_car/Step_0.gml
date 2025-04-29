@@ -57,3 +57,8 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
         }
     }
 }
+
+var gr = instance_place(x, y, obj_grass);
+if(gr != noone){
+speed *= 0.5;
+}
