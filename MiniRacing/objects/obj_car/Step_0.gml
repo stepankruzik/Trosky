@@ -30,3 +30,30 @@ y += lengthdir_y(speed, direction);
 
 //Tření (zpomalení)
 speed = lerp(speed, 0, friction);
+
+
+var cp = instance_place(x, y, obj_checkpoint);
+if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
+    // Aktivace checkpointu
+    cp.activated        = true;
+    cp.activation_timer = cp.activation_time_max;
+    cp.sprite_index     = spr_checkpoint_on; // Změna sprite na aktivovaný
+
+    // Posun na další checkpoint
+    current_checkpoint += 1;
+    show_debug_message("Projet checkpoint " + string(cp.checkpoint_id));
+
+    // Kontrola dokončení kola
+    if (current_checkpoint >= total_checkpoints) {
+        lap += 1;
+        current_checkpoint = 0;
+        show_debug_message("Dokončeno kolo " + string(lap));
+
+        // Reset všech checkpointů
+        with (obj_checkpoint) {
+            activated = false;
+            activation_timer = 0;
+            sprite_index = spr_checkpoint;
+        }
+    }
+}

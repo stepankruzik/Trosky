@@ -1,13 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_car",
+  "%Name":"obj_checkpoint",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_grass","path":"objects/obj_grass/obj_grass.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_car",
+  "name":"obj_checkpoint",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -32,13 +30,15 @@
     {"x":0.0,"y":16.0,},
   ],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v1","%Name":"checkpoint_id","filters":[],"listItems":[],"multiselect":false,"name":"checkpoint_id","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
-    "name":"spr_car",
-    "path":"sprites/spr_car/spr_car.yy",
+    "name":"spr_checkpoint",
+    "path":"sprites/spr_checkpoint/spr_checkpoint.yy",
   },
   "spriteMaskId":null,
   "visible":true,
