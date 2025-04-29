@@ -12,5 +12,7 @@ lap = 0;
 total_checkpoints = 3; // uprav na svůj reálný počet checkpointů
 
 
+can_move = false;
 
 next_checkpoint = 0;
+

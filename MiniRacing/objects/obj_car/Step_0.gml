@@ -1,6 +1,5 @@
-// obj_car - Step Event
-
 // Ovládání auta
+if (can_move) {
 if (keyboard_check(vk_up)) {
     speed += acceleration;
 }
@@ -27,7 +26,7 @@ if (keyboard_check(vk_right)) {
 // Pohyb auta
 x += lengthdir_x(speed, direction);
 y += lengthdir_y(speed, direction);
-
+}
 //Tření (zpomalení)
 speed = lerp(speed, 0, friction);
 
@@ -61,4 +60,5 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
 var gr = instance_place(x, y, obj_grass);
 if(gr != noone){
 speed *= 0.5;
+
 }
