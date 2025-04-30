@@ -30,7 +30,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.11.0.179",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"MiniRacing",
   "resources":[
@@ -48,6 +48,7 @@
     {"id":{"name":"obj_reset_room_button","path":"objects/obj_reset_room_button/obj_reset_room_button.yy",},},
     {"id":{"name":"obj_slider_master","path":"objects/obj_slider_master/obj_slider_master.yy",},},
     {"id":{"name":"obj_track","path":"objects/obj_track/obj_track.yy",},},
+    {"id":{"name":"obj_tyre","path":"objects/obj_tyre/obj_tyre.yy",},},
     {"id":{"name":"rm_car_select","path":"rooms/rm_car_select/rm_car_select.yy",},},
     {"id":{"name":"rm_menu_settings","path":"rooms/rm_menu_settings/rm_menu_settings.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
@@ -63,6 +64,7 @@
     {"id":{"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},},
     {"id":{"name":"spr_reset_room_button","path":"sprites/spr_reset_room_button/spr_reset_room_button.yy",},},
     {"id":{"name":"spr_track","path":"sprites/spr_track/spr_track.yy",},},
+    {"id":{"name":"spr_tyre","path":"sprites/spr_tyre/spr_tyre.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
