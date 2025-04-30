@@ -23,3 +23,6 @@ can_move = false;
 //ghost
 lap_data = []; // Pole na souřadnice pro ghost
 race_started = false;
+
+// Nastaví auto na vybraný sprite
+sprite_index = global.selected_car_sprite;
