@@ -19,3 +19,7 @@ lap_times = array_create(max_laps, 0);
 lap_time = 0;
 total_time = 0;
 can_move = false;
+
+//ghost
+lap_data = []; // Pole na souřadnice pro ghost
+race_started = false;

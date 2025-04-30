@@ -51,6 +51,14 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
         lap++;
         lap_time = 0;
         current_checkpoint = 0;
+		
+		// generovani ghosta, po skončení kola
+		with (obj_ghost) {
+		    ghost_path = other.lap_data;
+		    ghost_index = 0;
+		}
+		other.lap_data = []; // začít nové kolo
+
         
         // Reset checkpointů
         with (obj_checkpoint) {
@@ -65,12 +73,18 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
     }
 }
 
-
+//najetii na travu, zpomalení
 var gr = instance_place(x, y, obj_grass);
 if(gr != noone){
 speed *= 0.5;
-
 }
+
+var bst = instance_place(x, y, obj_boost);
+if(bst != noone){
+speed *= 1.5;
+}
+
+
 var br = instance_place(x, y, obj_barier); //když narazí do briéry odrazí ho to
 if (br != noone) {
   
@@ -78,5 +92,8 @@ if (br != noone) {
 
     // audio_play_sound(snd_bump, 1, false);
 }
+
+//ghost zaznamenávání lokace
+lap_data[array_length(lap_data)] = [x, y, image_angle];
 
 
