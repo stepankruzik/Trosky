@@ -27,7 +27,3 @@ draw_sprite_ext(
     1
 );
 
-// Šipky - dynamicky podle šířky auta
-var spr_width = sprite_get_width(current_sprite) * car_scale;
-var arrow_offset = spr_width * 0.8 + 20; // 80% šířky auta + 20px mezera
-
