@@ -1,3 +1,5 @@
+
+window_set_fullscreen(true);
 car_sprites = [spr_car_red, spr_car_blue, spr_car_green, spr_car_yellow];
 selected_index = 0;
 global.selected_car_sprite = car_sprites[selected_index];

@@ -1,15 +1,18 @@
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
+draw_set_font(f_carmenutext)
 
 // Hlavní texty
 draw_set_color(c_white);
-draw_text(room_width/2, 50, "VYBER SI AUTO");
-draw_text(room_width/2, 100, "← → pro výběr, ENTER pro start");
+var text_y = 50;
+draw_text(room_width/2, text_y, "VYBER SI AUTO");
+draw_text(room_width/2, text_y + 150, "POUZIJ SIPKY PRO VYBER, ENTER PRO START");
 
 // Aktuální auto
 var current_sprite = car_sprites[selected_index];
-var car_width = sprite_get_width(current_sprite) * car_scale;
-var car_height = sprite_get_height(current_sprite) * car_scale;
+var car_scale = 35;
+var car_x = 700;
+var car_y = text_y + 150; // 150px pod posledním textem
 
 // Vykreslení auta
 draw_sprite_ext(
@@ -24,11 +27,7 @@ draw_sprite_ext(
     1
 );
 
-// Šipky
-draw_set_color(c_black);
-draw_text(car_x - 200, car_y, "◄");
-draw_text(car_x + 200, car_y, "►");
+// Šipky - dynamicky podle šířky auta
+var spr_width = sprite_get_width(current_sprite) * car_scale;
+var arrow_offset = spr_width * 0.8 + 20; // 80% šířky auta + 20px mezera
 
-// Název auta
-var car_names = ["RED", "BLUE", "GREEN", "YELLOW"];
-draw_text(car_x, car_y + car_height/2 + 100, car_names[selected_index]);

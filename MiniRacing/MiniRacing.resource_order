@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"f_carmenutext","order":1,"path":"fonts/f_carmenutext/f_carmenutext.yy",},
     {"name":"obj_barier","order":6,"path":"objects/obj_barier/obj_barier.yy",},
     {"name":"obj_boost","order":8,"path":"objects/obj_boost/obj_boost.yy",},
     {"name":"obj_car_selector","order":10,"path":"objects/obj_car_selector/obj_car_selector.yy",},

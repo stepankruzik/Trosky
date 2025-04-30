@@ -34,6 +34,7 @@
   },
   "name":"MiniRacing",
   "resources":[
+    {"id":{"name":"f_carmenutext","path":"fonts/f_carmenutext/f_carmenutext.yy",},},
     {"id":{"name":"f_Countdown","path":"fonts/f_Countdown/f_Countdown.yy",},},
     {"id":{"name":"obj_barier","path":"objects/obj_barier/obj_barier.yy",},},
     {"id":{"name":"obj_boost","path":"objects/obj_boost/obj_boost.yy",},},
