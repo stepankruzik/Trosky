@@ -92,6 +92,12 @@ if (br != noone) {
 
     // audio_play_sound(snd_bump, 1, false);
 }
+var ty = instance_place(x, y, obj_tyre); //za pneumatiku nebude moct jet 
+if (ty != noone) {
+  
+    speed = 0;
+
+}
 
 //ghost zaznamenávání lokace
 lap_data[array_length(lap_data)] = [x, y, image_angle];
