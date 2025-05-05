@@ -17,11 +17,11 @@ if (car != noone) {
 
     // Aktuální info
     draw_text(10, 10, "Kolo: " + string(car.lap+1) + "/" + string(car.max_laps) + 
-              "\nČas: " + format_time(car.lap_time));
+              "\nCas: " + format_time(car.lap_time));
 
     // Výsledky po dokončení
     if (car.lap >= car.max_laps) {
-        draw_text(room_width/2 - 100, room_height/2 - 50, "FINISH!\nCelkový cas: " + format_time(car.total_time));
+        draw_text(room_width/2 - 100, room_height/2 - 50, "FINISH!\nCelkovy cas: " + format_time(car.total_time));
         for (var i = 0; i < car.max_laps; i++) {
             draw_text(room_width/2 - 100, room_height/2 + i*30 - 20, 
                       "\nKolo " + string(i+1) + ": " + format_time(car.lap_times[i]));

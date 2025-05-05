@@ -28,6 +28,8 @@
     {"name":"obj_hud","order":5,"path":"objects/obj_hud/obj_hud.yy",},
     {"name":"obj_reset_room_button","order":7,"path":"objects/obj_reset_room_button/obj_reset_room_button.yy",},
     {"name":"obj_slider_master","order":11,"path":"objects/obj_slider_master/obj_slider_master.yy",},
+    {"name":"obj_slider_steering","order":14,"path":"objects/obj_slider_steering/obj_slider_steering.yy",},
+    {"name":"obj_toggle_contlorer","order":13,"path":"objects/obj_toggle_contlorer/obj_toggle_contlorer.yy",},
     {"name":"obj_track","order":1,"path":"objects/obj_track/obj_track.yy",},
     {"name":"obj_tyre","order":12,"path":"objects/obj_tyre/obj_tyre.yy",},
     {"name":"rm_car_select","order":1,"path":"rooms/rm_car_select/rm_car_select.yy",},

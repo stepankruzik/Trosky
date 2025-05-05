@@ -43,7 +43,7 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
     cp.sprite_index = spr_checkpoint_on;
     current_checkpoint++;
     
-    show_debug_message("Checkpoint " + string(current_checkpoint-1) + " aktivován");
+    show_debug_message("Checkpoint " + string(current_checkpoint-1) + " aktivovan");
 
     // Kontrola kola
     if (current_checkpoint >= total_checkpoints) {
@@ -68,7 +68,7 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
         
         if (lap >= max_laps) {
             can_move = false;
-            show_debug_message("Konec závodu!");
+            show_debug_message("Konec zavodu!");
         }
     }
 }
@@ -91,12 +91,6 @@ if (br != noone) {
     speed *= -0.4;
 
     // audio_play_sound(snd_bump, 1, false);
-}
-var ty = instance_place(x, y, obj_tyre); //za pneumatiku nebude moct jet 
-if (ty != noone) {
-  
-    speed = 0;
-
 }
 
 //ghost zaznamenávání lokace
