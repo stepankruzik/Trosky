@@ -1,5 +1,12 @@
 // Ovládání auta
 if (can_move) {
+if (abs(speed) > 0.5) {
+    if (!audio_is_playing(snd_car)) {
+        audio_play_sound(snd_car, 1, true); // loop == true
+    }
+} else {
+    audio_stop_sound(snd_car);
+}
 if (keyboard_check(vk_up)) {
     speed += acceleration;
 }

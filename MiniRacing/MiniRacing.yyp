@@ -60,6 +60,8 @@
     {"id":{"name":"rm_esc","path":"rooms/rm_esc/rm_esc.yy",},},
     {"id":{"name":"rm_menu_settings","path":"rooms/rm_menu_settings/rm_menu_settings.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"snd_car","path":"sounds/snd_car/snd_car.yy",},},
+    {"id":{"name":"snd_music","path":"sounds/snd_music/snd_music.yy",},},
     {"id":{"name":"spr_barier","path":"sprites/spr_barier/spr_barier.yy",},},
     {"id":{"name":"spr_boost","path":"sprites/spr_boost/spr_boost.yy",},},
     {"id":{"name":"spr_button_continue","path":"sprites/spr_button_continue/spr_button_continue.yy",},},

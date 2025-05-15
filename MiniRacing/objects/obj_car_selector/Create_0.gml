@@ -1,4 +1,6 @@
 
+audio_play_sound(snd_music, 1, true);
+
 window_set_fullscreen(true);
 car_sprites = [spr_car_red, spr_car_blue, spr_car_green, spr_car_yellow];
 selected_index = 0;
@@ -13,3 +15,4 @@ car_scale = 10;
 target_x = car_x;
 current_x = car_x;
 animation_speed = 20;
+
