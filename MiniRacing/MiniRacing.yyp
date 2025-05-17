@@ -76,6 +76,8 @@
     {"id":{"name":"spr_ghost","path":"sprites/spr_ghost/spr_ghost.yy",},},
     {"id":{"name":"spr_grass","path":"sprites/spr_grass/spr_grass.yy",},},
     {"id":{"name":"spr_reset_room_button","path":"sprites/spr_reset_room_button/spr_reset_room_button.yy",},},
+    {"id":{"name":"spr_tacho_needle","path":"sprites/spr_tacho_needle/spr_tacho_needle.yy",},},
+    {"id":{"name":"spr_tacho","path":"sprites/spr_tacho/spr_tacho.yy",},},
     {"id":{"name":"spr_track","path":"sprites/spr_track/spr_track.yy",},},
     {"id":{"name":"spr_tyre","path":"sprites/spr_tyre/spr_tyre.yy",},},
   ],

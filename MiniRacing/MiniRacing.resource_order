@@ -53,6 +53,8 @@
     {"name":"spr_ghost","order":7,"path":"sprites/spr_ghost/spr_ghost.yy",},
     {"name":"spr_grass","order":2,"path":"sprites/spr_grass/spr_grass.yy",},
     {"name":"spr_reset_room_button","order":12,"path":"sprites/spr_reset_room_button/spr_reset_room_button.yy",},
+    {"name":"spr_tacho_needle","order":15,"path":"sprites/spr_tacho_needle/spr_tacho_needle.yy",},
+    {"name":"spr_tacho","order":16,"path":"sprites/spr_tacho/spr_tacho.yy",},
     {"name":"spr_track","order":1,"path":"sprites/spr_track/spr_track.yy",},
     {"name":"spr_tyre","order":11,"path":"sprites/spr_tyre/spr_tyre.yy",},
   ],
