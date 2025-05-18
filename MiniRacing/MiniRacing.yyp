@@ -38,6 +38,7 @@
     {"id":{"name":"f_carmenutext","path":"fonts/f_carmenutext/f_carmenutext.yy",},},
     {"id":{"name":"f_Countdown","path":"fonts/f_Countdown/f_Countdown.yy",},},
     {"id":{"name":"obj_ai_car","path":"objects/obj_ai_car/obj_ai_car.yy",},},
+    {"id":{"name":"obj_ai_path_point","path":"objects/obj_ai_path_point/obj_ai_path_point.yy",},},
     {"id":{"name":"obj_barier","path":"objects/obj_barier/obj_barier.yy",},},
     {"id":{"name":"obj_boost","path":"objects/obj_boost/obj_boost.yy",},},
     {"id":{"name":"obj_button_continue","path":"objects/obj_button_continue/obj_button_continue.yy",},},

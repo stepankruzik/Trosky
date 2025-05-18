@@ -1,9 +1,10 @@
-// AI startovací proměnné
-current_checkpoint = 0;
+// --- Startovní proměnné ---
+current_checkpoint = 0; // pro hráčovy checkpointy
+current_checkpoint_path = -1; // Začneme od path_id = 0
 target = noone;
 
 speed = 0;
-direction = 270; // Pokud startuje směrem dolů – uprav podle mapy
+direction = 270; // uprav podle směru na startu
 acceleration = 0.2;
 max_speed = 4;
 turn_speed = 4;
@@ -15,9 +16,9 @@ lap_times = array_create(max_laps, 0);
 lap_time = 0;
 total_time = 0;
 
-can_move = false; // AI čeká na start odpočítání
+can_move = false; // AI čeká na odpočet
 
-// Počet checkpointů automaticky spočítat
+// --- Počet hráčových checkpointů (pro kola) ---
 total_checkpoints = 0;
 with (obj_checkpoint) {
     if (checkpoint_id >= other.total_checkpoints) {
@@ -25,8 +26,15 @@ with (obj_checkpoint) {
     }
 }
 
-// Sprite AI auta (může být stejný nebo vlastní)
-sprite_index = spr_car_yellow; // nebo nahraď spr_ai_car jiným spritem
+// --- Navigační body pro AI (obj_ai_path_point) ---
+ai_checkpoint = 0;
+total_ai_checkpoints = 0;
+with (obj_ai_path_point) {
+    if (path_id >= other.total_ai_checkpoints) {
+        other.total_ai_checkpoints = path_id + 1;
+    }
+}
 
-// Kreslení nad jinými objekty
+// --- Sprite a hloubka ---
+sprite_index = spr_car_yellow; // změň dle potřeby
 depth = -10;

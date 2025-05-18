@@ -1,38 +1,47 @@
-// Step Event AI auta
-if (!can_move) exit; // ← musí být jako první věc ve Step Eventu!
+// Zastavení na začátku
+if (!can_move) exit;
 
-// Pokud AI dokončilo závod nebo hráč vyhrál, tak se nehýbej
+// Zastavit, pokud AI dokončilo závod nebo hráč vyhrál
 if (lap >= max_laps || obj_car.lap >= max_laps) {
     can_move = false;
-    exit; // zastav vše ostatní ve Step eventu
+    exit;
 }
 
-// Najít další checkpoint
+// === Najít další AI trasový bod ===
 if (target == noone || !instance_exists(target) || point_distance(x, y, target.x, target.y) < 16) {
-    with (obj_checkpoint) {
-        if (checkpoint_id == other.current_checkpoint) {
+    var next_id = current_checkpoint_path + 1;
+    var found = false;
+
+    with (obj_ai_path_point) {
+        if (path_id == next_id) {
             other.target = id;
+            other.current_checkpoint_path = next_id;
+            found = true;
         }
+    }
+
+    // Konec trasy? Restartuj
+    if (!found) {
+        current_checkpoint_path = -1;
     }
 }
 
-// Pokud máme cíl
+// === Řízení k cíli ===
 if (target != noone) {
-    // Úhel směrem k cíli
     var target_dir = point_direction(x, y, target.x, target.y);
     var angle_diff = angle_difference(direction, target_dir);
 
-    // Otáčení směrem k cíli
+    // Otáčení
     direction += clamp(angle_diff, -turn_speed, turn_speed);
 
-    // Zrychlení vpřed
+    // Zrychlování
     if (abs(angle_diff) < 90) {
         speed += acceleration;
     } else {
         speed -= acceleration;
     }
 
-    // Omez rychlost
+    // Omezení rychlosti
     speed = clamp(speed, -max_speed * 0.5, max_speed);
 
     // Pohyb
@@ -41,27 +50,33 @@ if (target != noone) {
 
     // Tření
     speed = lerp(speed, 0, friction);
+}
 
-    // Checkpoint dosažen?
-    if (point_distance(x, y, target.x, target.y) < 16) {
-        current_checkpoint += 1;
-        if (current_checkpoint >= total_checkpoints) {
-            current_checkpoint = 0;
+// === Hráčský checkpoint dosažen? ===
+var cp = instance_place(x, y, obj_checkpoint);
+if (cp != noone && cp.checkpoint_id == current_checkpoint) {
+    current_checkpoint++;
+
+    if (current_checkpoint >= total_checkpoints) {
+        current_checkpoint = 0;
+        lap += 1;
+        lap_time = 0;
+
+        if (lap >= max_laps) {
+            can_move = false;
         }
     }
 }
 
-// Grass
+// === Povrchy ===
 if (instance_place(x, y, obj_grass)) {
     speed *= 0.5;
 }
 
-// Boost
 if (instance_place(x, y, obj_boost)) {
     speed *= 1.5;
 }
 
-// Bariéra
 if (instance_place(x, y, obj_barier)) {
     speed *= -0.4;
 }

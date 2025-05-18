@@ -19,6 +19,7 @@
   "ResourceOrderSettings":[
     {"name":"f_carmenutext","order":1,"path":"fonts/f_carmenutext/f_carmenutext.yy",},
     {"name":"obj_ai_car","order":20,"path":"objects/obj_ai_car/obj_ai_car.yy",},
+    {"name":"obj_ai_path_point","order":21,"path":"objects/obj_ai_path_point/obj_ai_path_point.yy",},
     {"name":"obj_barier","order":6,"path":"objects/obj_barier/obj_barier.yy",},
     {"name":"obj_boost","order":8,"path":"objects/obj_boost/obj_boost.yy",},
     {"name":"obj_button_continue","order":17,"path":"objects/obj_button_continue/obj_button_continue.yy",},
