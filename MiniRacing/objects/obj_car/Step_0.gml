@@ -59,6 +59,7 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
         lap_time = 0;
         current_checkpoint = 0;
 		
+		
 		// generovani ghosta, po skončení kola
 		with (obj_ghost) {
 		    ghost_path = other.lap_data;
@@ -102,5 +103,7 @@ if (br != noone) {
 
 //ghost zaznamenávání lokace
 lap_data[array_length(lap_data)] = [x, y, image_angle];
+
+
 
 
