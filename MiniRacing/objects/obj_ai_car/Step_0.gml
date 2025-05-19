@@ -20,7 +20,7 @@ if (target == noone || !instance_exists(target) || point_distance(x, y, target.x
         }
     }
 
-    // Konec trasy? Restartuj
+    // Konec trasy Restartuj
     if (!found) {
         current_checkpoint_path = -1;
     }
@@ -79,4 +79,14 @@ if (instance_place(x, y, obj_boost)) {
 
 if (instance_place(x, y, obj_barier)) {
     speed *= -0.4;
+}
+
+// === Časomíra ===
+var dt = delta_time / 1000000; // delta_time je v mikrosekundách → převod na sekundy
+lap_time += dt;
+total_time += dt;
+
+// === Ulož čas kola po dokončení kola ===
+if (lap > 0 && lap_time < dt * 2) { // právě jsme skočili do nového kola
+    lap_times[lap - 1] = lap_time;
 }
