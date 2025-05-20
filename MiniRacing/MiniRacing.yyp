@@ -45,6 +45,7 @@
     {"id":{"name":"obj_button_continue","path":"objects/obj_button_continue/obj_button_continue.yy",},},
     {"id":{"name":"obj_button_end","path":"objects/obj_button_end/obj_button_end.yy",},},
     {"id":{"name":"obj_button_menu","path":"objects/obj_button_menu/obj_button_menu.yy",},},
+    {"id":{"name":"obj_button_settings","path":"objects/obj_button_settings/obj_button_settings.yy",},},
     {"id":{"name":"obj_car_selector","path":"objects/obj_car_selector/obj_car_selector.yy",},},
     {"id":{"name":"obj_car","path":"objects/obj_car/obj_car.yy",},},
     {"id":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},},

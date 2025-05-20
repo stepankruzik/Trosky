@@ -59,7 +59,14 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint) {
 
     if (current_checkpoint >= total_checkpoints) {
         current_checkpoint = 0;
+
         lap += 1;
+
+        // Ulož čas kola (správně)
+        if (lap <= max_laps) {
+            lap_times[lap - 1] = lap_time;
+        }
+
         lap_time = 0;
 
         if (lap >= max_laps) {
@@ -82,11 +89,6 @@ if (instance_place(x, y, obj_barier)) {
 }
 
 // === Časomíra ===
-var dt = delta_time / 1000000; // delta_time je v mikrosekundách → převod na sekundy
+var dt = delta_time / 1000000; // delta_time je v mikrosekundách → sekundy
 lap_time += dt;
 total_time += dt;
-
-// === Ulož čas kola po dokončení kola ===
-if (lap > 0 && lap_time < dt * 2) { // právě jsme skočili do nového kola
-    lap_times[lap - 1] = lap_time;
-}

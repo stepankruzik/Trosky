@@ -26,6 +26,7 @@
     {"name":"obj_button_continue","order":17,"path":"objects/obj_button_continue/obj_button_continue.yy",},
     {"name":"obj_button_end","order":22,"path":"objects/obj_button_end/obj_button_end.yy",},
     {"name":"obj_button_menu","order":18,"path":"objects/obj_button_menu/obj_button_menu.yy",},
+    {"name":"obj_button_settings","order":23,"path":"objects/obj_button_settings/obj_button_settings.yy",},
     {"name":"obj_car_selector","order":10,"path":"objects/obj_car_selector/obj_car_selector.yy",},
     {"name":"obj_checkpoint","order":3,"path":"objects/obj_checkpoint/obj_checkpoint.yy",},
     {"name":"obj_controller","order":16,"path":"objects/obj_controller/obj_controller.yy",},

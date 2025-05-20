@@ -6,4 +6,5 @@ if (hover && mouse_check_button_pressed(mb_left)) {
     if (text == "Pokračovat") room_goto(global.return_room);
     else if (text == "Konec")game_end();
     else if (text == "Menu") room_goto(rm_car_select);
+	else if (text == "Nastavení") room_goto(rm_menu_settings);
 }
