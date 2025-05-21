@@ -92,6 +92,7 @@ if(bst != noone){
 speed *= 1.5;
 }
 
+image_angle = direction;
 
 var br = instance_place(x, y, obj_barier); //když narazí do briéry odrazí ho to
 if (br != noone) {

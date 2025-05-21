@@ -92,3 +92,5 @@ if (instance_place(x, y, obj_barier)) {
 var dt = delta_time / 1000000; // delta_time je v mikrosekundách → sekundy
 lap_time += dt;
 total_time += dt;
+
+image_angle = direction;

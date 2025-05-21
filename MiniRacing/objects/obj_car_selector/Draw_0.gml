@@ -10,9 +10,9 @@ draw_text(room_width/2, text_y + 150, "POUZIJ SIPKY PRO VYBER, ENTER PRO START")
 
 // Aktuální auto
 var current_sprite = car_sprites[selected_index];
-var car_scale = 35;
-var car_x = 700;
-var car_y = text_y + 150; // 150px pod posledním textem
+var car_scale = 1;
+var car_x = 1000;
+var car_y = text_y + 600; // 150px pod posledním textem
 
 // Vykreslení auta
 draw_sprite_ext(

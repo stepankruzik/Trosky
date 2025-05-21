@@ -3,6 +3,8 @@ current_checkpoint = 0; // pro hráčovy checkpointy
 current_checkpoint_path = -1; // Začneme od path_id = 0
 target = noone;
 
+
+
 speed = 0;
 direction = 270; // uprav podle směru na startu
 acceleration = 0.2;
@@ -35,6 +37,9 @@ with (obj_ai_path_point) {
     }
 }
 
+
+
 // --- Sprite a hloubka ---
 sprite_index = spr_car_yellow; // změň dle potřeby
 depth = -10;
+
