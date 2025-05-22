@@ -1,9 +1,9 @@
-// Zastavení na začátku
+// === Zastavení na začátku ===
 if (!can_move) exit;
 
-// Zastavit, pokud AI dokončilo závod nebo hráč vyhrál
-if (lap >= max_laps || obj_car.lap >= max_laps) {
-    can_move = false;
+// === Zastavit, pokud AI dokončilo závod nebo hráč vyhrál ===
+if (lap >= global.max_laps || obj_car.lap >= global.max_laps) {
+    global.can_move = false;
     exit;
 }
 
@@ -20,7 +20,7 @@ if (target == noone || !instance_exists(target) || point_distance(x, y, target.x
         }
     }
 
-    // Konec trasy Restartuj
+    // Konec trasy – restartuj na začátek
     if (!found) {
         current_checkpoint_path = -1;
     }
@@ -52,25 +52,24 @@ if (target != noone) {
     speed = lerp(speed, 0, friction);
 }
 
-// === Hráčský checkpoint dosažen? ===
+// === AI checkpoint dosažen? ===
 var cp = instance_place(x, y, obj_checkpoint);
 if (cp != noone && cp.checkpoint_id == current_checkpoint) {
     current_checkpoint++;
 
     if (current_checkpoint >= total_checkpoints) {
         current_checkpoint = 0;
-
         lap += 1;
 
         // Ulož čas kola (správně)
-        if (lap <= max_laps) {
+        if (lap <= global.max_laps) {
             lap_times[lap - 1] = lap_time;
         }
 
         lap_time = 0;
 
-        if (lap >= max_laps) {
-            can_move = false;
+        if (lap >= global.max_laps) {
+            global.can_move = false;
         }
     }
 }
@@ -79,18 +78,17 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint) {
 if (instance_place(x, y, obj_grass)) {
     speed *= 0.5;
 }
-
 if (instance_place(x, y, obj_boost)) {
     speed *= 1.5;
 }
-
 if (instance_place(x, y, obj_barier)) {
     speed *= -0.4;
 }
 
 // === Časomíra ===
-var dt = delta_time / 1000000; // delta_time je v mikrosekundách → sekundy
+var dt = delta_time / 1000000; // mikrosekundy → sekundy
 lap_time += dt;
 total_time += dt;
 
+// Nastavení rotace obrázku podle směru jízdy
 image_angle = direction;

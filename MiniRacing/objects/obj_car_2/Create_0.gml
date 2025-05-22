@@ -25,7 +25,7 @@ lap_data = []; // Pole na souřadnice pro ghost
 race_started = false;
 
 // Nastaví auto na vybraný sprite
-sprite_index = global.selected_car_sprite;
+sprite_index = spr_car_green;
 
 //  Zmenšení auta na 50 %
 image_xscale = 0.092;

@@ -1,15 +1,15 @@
 if (can_move) {
-    // Ovládání (šipky)
-    if (keyboard_check(vk_up)) speed += acceleration;
-    if (keyboard_check(vk_down)) speed -= acceleration;
+    // Ovládání (WSAD)
+    if (keyboard_check(ord("W"))) speed += acceleration;
+    if (keyboard_check(ord("S"))) speed -= acceleration;
 
     // Omezení rychlosti
     if (speed > max_speed) speed = max_speed;
     if (speed < -max_speed * 0.5) speed = -max_speed * 0.5;
 
     // Otáčení (jen při pohybu)
-    if (keyboard_check(vk_left)) direction -= turn_speed * (speed / max_speed);
-    if (keyboard_check(vk_right)) direction += turn_speed * (speed / max_speed);
+    if (keyboard_check(ord("A"))) direction -= turn_speed * (speed / max_speed);
+    if (keyboard_check(ord("D"))) direction += turn_speed * (speed / max_speed);
 
     // Pohyb auta
     x += lengthdir_x(speed, direction);
@@ -47,7 +47,7 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
 
         if (lap >= max_laps) {
             can_move = false;
-            show_debug_message("Konec závodu! (car)");
+            show_debug_message("Konec závodu! (car_2)");
         }
     }
 }
@@ -70,6 +70,7 @@ if (br != noone) {
     speed *= -0.4;
     // audio_play_sound(snd_bump, 1, false); // Volitelný zvuk nárazu
 }
+
 
 // === Ghost recording (volitelné) ===
 lap_data[array_length(lap_data)] = [x, y, image_angle];
