@@ -48,6 +48,7 @@
     {"name":"rm_car_select","order":1,"path":"rooms/rm_car_select/rm_car_select.yy",},
     {"name":"rm_esc","order":3,"path":"rooms/rm_esc/rm_esc.yy",},
     {"name":"rm_menu_settings","order":2,"path":"rooms/rm_menu_settings/rm_menu_settings.yy",},
+    {"name":"rm_mode_select","order":4,"path":"rooms/rm_mode_select/rm_mode_select.yy",},
     {"name":"snd_music","order":1,"path":"sounds/snd_music/snd_music.yy",},
     {"name":"spr_ai_checkpoint","order":17,"path":"sprites/spr_ai_checkpoint/spr_ai_checkpoint.yy",},
     {"name":"spr_barier","order":5,"path":"sprites/spr_barier/spr_barier.yy",},

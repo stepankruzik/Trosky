@@ -1,6 +1,5 @@
 draw_set_font(fnt_esc);
 draw_set_color(c_white);
-draw_text(100, 100, "Zvol si režim:");
 
 for (var i = 0; i < array_length(options); i++) {
     var ox = start_x;

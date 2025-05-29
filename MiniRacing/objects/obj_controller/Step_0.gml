@@ -8,7 +8,7 @@ for (var i = 0; i < array_length(options); i++) {
             else if (i == 1) global.game_mode = "ai";
             else if (i == 2) global.game_mode = "mp";
 
-            room_goto(Room1); // přepnutí do závodní místnosti
+            room_goto(rm_car_select); // přepnutí do závodní místnosti
         }
     }
 }
