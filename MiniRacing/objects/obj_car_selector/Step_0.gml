@@ -17,5 +17,5 @@ global.selected_car_sprite = car_sprites[selected_index];
 
 // Spuštění závodu klávesou Enter
 if (keyboard_check_pressed(vk_enter)) {
-    room_goto(Room1); // Přepnutí dao závodní místnosti
+    room_goto(Room2); // Přepnutí dao závodní místnosti
 }

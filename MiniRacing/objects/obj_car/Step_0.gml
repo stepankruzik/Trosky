@@ -76,3 +76,6 @@ lap_data[array_length(lap_data)] = [x, y, image_angle];
 
 // Nastavení rotace obrázku podle směru jízdy
 image_angle = direction;
+
+// === Kamera sleduje auto ===
+camera_set_view_pos(view_camera[0], x - camera_get_view_width(view_camera[0]) / 2, y - camera_get_view_height(view_camera[0]) / 2);
