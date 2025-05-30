@@ -10,7 +10,7 @@ turn_speed = 4;
 
 // Checkpointy
 current_checkpoint = 0;
-total_checkpoints = 3; // Nastav skutečný počet
+total_checkpoints = 8; // Nastav skutečný počet
 lap = 0;
 max_laps = 3;
 
