@@ -8,8 +8,8 @@ if (can_move) {
     if (speed < -max_speed * 0.5) speed = -max_speed * 0.5;
 
     // Otáčení (jen při pohybu)
-    if (keyboard_check(vk_left)) direction -= turn_speed * (speed / max_speed);
-    if (keyboard_check(vk_right)) direction += turn_speed * (speed / max_speed);
+    if (keyboard_check(vk_left)) direction += turn_speed * (speed / max_speed);
+    if (keyboard_check(vk_right)) direction -= turn_speed * (speed / max_speed);
 
     // Pohyb auta
     x += lengthdir_x(speed, direction);
