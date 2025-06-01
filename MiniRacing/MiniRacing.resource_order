@@ -36,6 +36,7 @@
     {"name":"obj_ghost","order":9,"path":"objects/obj_ghost/obj_ghost.yy",},
     {"name":"obj_grass","order":2,"path":"objects/obj_grass/obj_grass.yy",},
     {"name":"obj_hud","order":5,"path":"objects/obj_hud/obj_hud.yy",},
+    {"name":"obj_mini_map","order":28,"path":"objects/obj_mini_map/obj_mini_map.yy",},
     {"name":"obj_race_controller","order":24,"path":"objects/obj_race_controller/obj_race_controller.yy",},
     {"name":"obj_race_setup","order":26,"path":"objects/obj_race_setup/obj_race_setup.yy",},
     {"name":"obj_reset_room_button","order":7,"path":"objects/obj_reset_room_button/obj_reset_room_button.yy",},
