@@ -19,12 +19,12 @@ total_time = 0;
 can_move = false; // AI čeká na odpočet
 
 // --- Počet hráčových checkpointů (pro kola) ---
-total_checkpoints = 0;
-with (obj_checkpoint) {
+total_checkpoints = 8;
+/*with (obj_checkpoint) {
     if (checkpoint_id >= other.total_checkpoints) {
         other.total_checkpoints = checkpoint_id + 1;
     }
-}
+}*/
 
 // --- Navigační body pro AI (obj_ai_path_point) ---
 ai_checkpoint = 0;

@@ -9,12 +9,12 @@ option_height = 40;
 global.can_move = false;
 global.max_laps = 3; // jen pokud chceš globální verzi
 
-var start_x1 = 350;
-var start_y1 = 400;
+var start_x1 = 640;
+var start_y1 = 421;
 
 
-var start_x2 = 320;
-var start_y2 = 400;
+var start_x2 = 640;
+var start_y2 = 521;
 
 if (global.game_mode == "solo") {
     player = instance_create_layer(start_x1, start_y1, "Instances", obj_car); // Jen jedno auto
