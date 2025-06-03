@@ -8,8 +8,8 @@ if (can_move) {
     if (speed < -max_speed * 0.5) speed = -max_speed * 0.5;
 
     // Otáčení (jen při pohybu)
-    if (keyboard_check(ord("A"))) direction -= turn_speed * (speed / max_speed);
-    if (keyboard_check(ord("D"))) direction += turn_speed * (speed / max_speed);
+    if (keyboard_check(ord("A"))) direction += turn_speed * (speed / max_speed);
+    if (keyboard_check(ord("D"))) direction -= turn_speed * (speed / max_speed);
 
     // Pohyb auta
     x += lengthdir_x(speed, direction);
@@ -77,3 +77,5 @@ lap_data[array_length(lap_data)] = [x, y, image_angle];
 
 // Nastavení rotace obrázku podle směru jízdy
 image_angle = direction;
+
+camera_set_view_pos(view_camera[1], x - camera_get_view_width(view_camera[1]) / 2, y - camera_get_view_height(view_camera[1]) / 2);
