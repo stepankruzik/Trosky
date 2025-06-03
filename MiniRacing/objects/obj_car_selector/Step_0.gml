@@ -17,5 +17,9 @@ global.selected_car_sprite = car_sprites[selected_index];
 
 // Spuštění závodu klávesou Enter
 if (keyboard_check_pressed(vk_enter)) {
-    room_goto(Room2); // Přepnutí dao závodní místnosti
+    if (global.game_mode = "mp") {
+        room_goto(Room2); // Multiplayer místnost se 2 kamerami
+    } else {
+        room_goto(Room2_solo); // Solo nebo AI režim – místnost s 1 kamerou
+    }
 }
