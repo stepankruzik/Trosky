@@ -1,9 +1,9 @@
 // Výpočet natočení ručičky
 var max_angle = 200;
-var angle = clamp(abs(obj_car.speed) / obj_car.max_speed, 0, 1) * max_angle;
+var angle = clamp(abs(obj_car_2.speed) / obj_car_2.max_speed, 0, 1) * max_angle;
 
 // Souřadnice středu tachometru
-var cx = display_get_gui_width() - 200;
+var cx = 200;
 var cy = display_get_gui_height() - 200;
 
 // Vykresli pozadí tachometru

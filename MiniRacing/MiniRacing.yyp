@@ -66,6 +66,7 @@
     {"id":{"name":"obj_track","path":"objects/obj_track/obj_track.yy",},},
     {"id":{"name":"obj_track2","path":"objects/obj_track2/obj_track2.yy",},},
     {"id":{"name":"obj_tyre","path":"objects/obj_tyre/obj_tyre.yy",},},
+    {"id":{"name":"obj_ui_car_2","path":"objects/obj_ui_car_2/obj_ui_car_2.yy",},},
     {"id":{"name":"obj_ui","path":"objects/obj_ui/obj_ui.yy",},},
     {"id":{"name":"rm_car_select","path":"rooms/rm_car_select/rm_car_select.yy",},},
     {"id":{"name":"rm_esc","path":"rooms/rm_esc/rm_esc.yy",},},
