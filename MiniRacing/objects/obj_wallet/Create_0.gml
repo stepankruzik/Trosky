@@ -21,3 +21,12 @@ function remove_money(amount) {
         return false;
     }
 }
+
+// Inicializace tuningu (v Create Event)
+if (!variable_global_exists("car_speed_upgrade_level")) {
+    global.car_speed_upgrade_level = 0; // startovní level
+}
+
+if (!variable_global_exists("car_speed_upgrade_price")) {
+    global.car_speed_upgrade_price = 500; // cena za první upgrade
+}
