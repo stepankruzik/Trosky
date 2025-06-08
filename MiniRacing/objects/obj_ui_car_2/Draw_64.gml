@@ -7,10 +7,10 @@ var cx = 200;
 var cy = display_get_gui_height() - 200;
 
 // Vykresli pozadí tachometru
-draw_sprite_ext(spr_tacho, 0, cx, cy, 0.9, 0.9, 0, c_white, 1);
+draw_sprite_ext(spr_tacho, 0, cx, cy, 0.7, 0.7, 0, c_white, 1);
 
 // Vykresli ručičku
-draw_sprite_ext(spr_tacho_needle, 0, cx, cy, 0.9, 0.9, -angle, c_white, 1);
+draw_sprite_ext(spr_tacho_needle, 0, cx, cy, 0.7, 0.7, -angle, c_white, 1);
 
 // Vykresli rychlost textově pod tachometr
 var speed_text = string_format(abs(obj_car.speed) * 25, 0, 0) + " km/h"; 
