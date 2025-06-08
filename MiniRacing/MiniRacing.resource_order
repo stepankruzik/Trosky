@@ -53,6 +53,7 @@
     {"name":"rm_esc","order":3,"path":"rooms/rm_esc/rm_esc.yy",},
     {"name":"rm_menu_settings","order":2,"path":"rooms/rm_menu_settings/rm_menu_settings.yy",},
     {"name":"rm_mode_select","order":4,"path":"rooms/rm_mode_select/rm_mode_select.yy",},
+    {"name":"rm_shop","order":7,"path":"rooms/rm_shop/rm_shop.yy",},
     {"name":"Room2_solo","order":6,"path":"rooms/Room2_solo/Room2_solo.yy",},
     {"name":"Room2","order":5,"path":"rooms/Room2/Room2.yy",},
     {"name":"snd_music","order":1,"path":"sounds/snd_music/snd_music.yy",},
