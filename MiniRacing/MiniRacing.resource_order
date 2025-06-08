@@ -48,6 +48,7 @@
     {"name":"obj_tyre","order":12,"path":"objects/obj_tyre/obj_tyre.yy",},
     {"name":"obj_ui_car_2","order":29,"path":"objects/obj_ui_car_2/obj_ui_car_2.yy",},
     {"name":"obj_ui","order":19,"path":"objects/obj_ui/obj_ui.yy",},
+    {"name":"obj_wallet","order":30,"path":"objects/obj_wallet/obj_wallet.yy",},
     {"name":"rm_car_select","order":1,"path":"rooms/rm_car_select/rm_car_select.yy",},
     {"name":"rm_esc","order":3,"path":"rooms/rm_esc/rm_esc.yy",},
     {"name":"rm_menu_settings","order":2,"path":"rooms/rm_menu_settings/rm_menu_settings.yy",},

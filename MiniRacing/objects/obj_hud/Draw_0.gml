@@ -9,7 +9,7 @@ function format_time(t) {
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-draw_set_font(fnt_esc); // Předpokládáme, že fnt_esc je font, který používáš
+draw_set_font(fnt_esc); // Nastav font dle projektu
 
 // === SOLO MODE ===
 if (global.game_mode == "solo") {
@@ -19,14 +19,22 @@ if (global.game_mode == "solo") {
         var cx = camera_get_view_x(cam) + camera_get_view_width(cam) / 2;
         var cy = camera_get_view_y(cam) + camera_get_view_height(cam) - 110;
 
-        draw_text(cx - 100, cy, 
-                  "Solo režim\nHráč - Kolo: " + string(car.lap + 1) + "/" + string(car.max_laps) +
-                  "\nČas: " + format_time(car.lap_time));
+        draw_text(cx - 100, cy,
+            "Solo režim\nHráč - Kolo: " + string(car.lap + 1) + "/" + string(car.max_laps) +
+            "\nČas: " + format_time(car.lap_time));
 
         if (car.lap >= car.max_laps) {
             draw_text(cx - 100, cy + 60, "FINISH HRÁČ\nCelkový čas: " + format_time(car.total_time));
             for (var i = 0; i < car.max_laps; i++) {
                 draw_text(cx - 100, cy + 100 + i * 30, "Kolo " + string(i + 1) + ": " + format_time(car.lap_times[i]));
+            }
+
+            // 💰 Odměna
+            if (!reward_given && instance_exists(obj_wallet)) {
+                with (obj_wallet) {
+                    add_money(1000); // výhra
+                }
+                reward_given = true;
             }
         }
     }
@@ -42,21 +50,31 @@ else if (global.game_mode == "ai") {
     var offset_x = 130;
 
     if (car != noone) {
-        draw_text(cx - offset_x, cy, 
-                  "Hráč - Kolo: " + string(car.lap + 1) + "/" + string(car.max_laps) +
-                  "\nČas: " + format_time(car.lap_time));
+        draw_text(cx - offset_x, cy,
+            "Hráč - Kolo: " + string(car.lap + 1) + "/" + string(car.max_laps) +
+            "\nČas: " + format_time(car.lap_time));
+
         if (car.lap >= car.max_laps) {
             draw_text(cx - offset_x, cy + 60, "FINISH HRÁČ\nCelkový čas: " + format_time(car.total_time));
             for (var i = 0; i < car.max_laps; i++) {
                 draw_text(cx - offset_x, cy + 100 + i * 30, "Kolo " + string(i + 1) + ": " + format_time(car.lap_times[i]));
             }
+
+            // 💰 Odměna
+            if (!reward_given && instance_exists(obj_wallet)) {
+                with (obj_wallet) {
+                    add_money(1000); // výhra
+                }
+                reward_given = true;
+            }
         }
     }
 
     if (ai != noone) {
-        draw_text(cx + offset_x, cy, 
-                  "AI - Kolo: " + string(ai.lap + 1) + "/" + string(ai.max_laps) +
-                  "\nČas: " + format_time(ai.lap_time));
+        draw_text(cx + offset_x, cy,
+            "AI - Kolo: " + string(ai.lap + 1) + "/" + string(ai.max_laps) +
+            "\nČas: " + format_time(ai.lap_time));
+
         if (ai.lap >= ai.max_laps) {
             draw_text(cx + offset_x, cy + 60, "FINISH AI\nCelkový čas: " + format_time(ai.total_time));
             for (var i = 0; i < ai.max_laps; i++) {
@@ -78,14 +96,22 @@ else if (global.game_mode == "mp") {
         var cx0 = camera_get_view_x(cam0) + camera_get_view_width(cam0) / 2;
         var cy0 = camera_get_view_y(cam0) + camera_get_view_height(cam0) - 110;
 
-        draw_text(cx0 - offset_x, cy0, 
-                  "Hráč 1 - Kolo: " + string(car1.lap + 1) + "/" + string(car1.max_laps) +
-                  "\nČas: " + format_time(car1.lap_time));
+        draw_text(cx0 - offset_x, cy0,
+            "Hráč 1 - Kolo: " + string(car1.lap + 1) + "/" + string(car1.max_laps) +
+            "\nČas: " + format_time(car1.lap_time));
 
         if (car1.lap >= car1.max_laps) {
             draw_text(cx0 - offset_x, cy0 + 60, "FINISH Hráč 1\nCelkový čas: " + format_time(car1.total_time));
             for (var i = 0; i < car1.max_laps; i++) {
                 draw_text(cx0 - offset_x, cy0 + 100 + i * 30, "Kolo " + string(i + 1) + ": " + format_time(car1.lap_times[i]));
+            }
+
+            // 💰 Odměna
+            if (!reward_given && instance_exists(obj_wallet)) {
+                with (obj_wallet) {
+                    add_money(1000);
+                }
+                reward_given = true;
             }
         }
     }
@@ -96,9 +122,9 @@ else if (global.game_mode == "mp") {
         var cx1 = camera_get_view_x(cam1) + camera_get_view_width(cam1) / 2;
         var cy1 = camera_get_view_y(cam1) + camera_get_view_height(cam1) - 110;
 
-        draw_text(cx1 - offset_x, cy1, 
-                  "Hráč 2 - Kolo: " + string(car2.lap + 1) + "/" + string(car2.max_laps) +
-                  "\nČas: " + format_time(car2.lap_time));
+        draw_text(cx1 - offset_x, cy1,
+            "Hráč 2 - Kolo: " + string(car2.lap + 1) + "/" + string(car2.max_laps) +
+            "\nČas: " + format_time(car2.lap_time));
 
         if (car2.lap >= car2.max_laps) {
             draw_text(cx1 - offset_x, cy1 + 60, "FINISH Hráč 2\nCelkový čas: " + format_time(car2.total_time));
