@@ -1,28 +1,31 @@
+// Draw event – obj_shop
+
 draw_set_font(fnt_esc);
 draw_set_color(c_white);
 
-draw_text(40, 80, "Obchod - Vyber položku pomocí šipek:");
-draw_text(40, 110, "Peníze: $" + string(global.money));
-
-var start_y = 140;
+var start_x = 100;
+var start_y = 100;
 var spacing = 30;
 
 for (var i = 0; i < array_length(items); i++) {
     y = start_y + i * spacing;
-
-
+    
     if (i == selected_item) {
         draw_set_color(c_yellow);
-        draw_rectangle(30, y - 5, 300, y + 20, false);
+        draw_text(start_x - 20, y, "X");
+    } else {
         draw_set_color(c_white);
     }
-
-    draw_text(40, y, items[i] + " - Cena: $" + string(prices[i]));
+    
+    draw_text(start_x, y, items[i] + " - " + string(prices[i]) + " Kč");
 }
 
-// Zpráva (např. úspěch nebo chyba)
+// Zobraz aktuální peníze
+draw_set_color(c_lime);
+draw_text(start_x, start_y - 40, "Peněženka: " + string(global.money) + " Kč");
+
+// Zobraz zprávu (pokud je)
 if (message != "") {
     draw_set_color(c_red);
-    draw_text(room_width / 2, room_height - 50, message);
-    draw_set_color(c_white);
+    draw_text(start_x, start_y + array_length(items) * spacing + 20, message);
 }

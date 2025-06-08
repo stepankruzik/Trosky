@@ -59,6 +59,7 @@
     {"id":{"name":"obj_mini_map","path":"objects/obj_mini_map/obj_mini_map.yy",},},
     {"id":{"name":"obj_race_controller","path":"objects/obj_race_controller/obj_race_controller.yy",},},
     {"id":{"name":"obj_race_setup","path":"objects/obj_race_setup/obj_race_setup.yy",},},
+    {"id":{"name":"obj_reset_init","path":"objects/obj_reset_init/obj_reset_init.yy",},},
     {"id":{"name":"obj_reset_room_button","path":"objects/obj_reset_room_button/obj_reset_room_button.yy",},},
     {"id":{"name":"obj_shop","path":"objects/obj_shop/obj_shop.yy",},},
     {"id":{"name":"obj_slider_master","path":"objects/obj_slider_master/obj_slider_master.yy",},},

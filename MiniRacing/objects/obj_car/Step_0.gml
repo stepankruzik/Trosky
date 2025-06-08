@@ -1,31 +1,60 @@
+// Upgradované hodnoty vždy nastavíme z globálních + základních, abychom měli aktuální hodnoty (lepší než měnit jen v Create)
+var base_max_speed = 5;
+var base_acceleration = 0.2;
+var base_turn_speed = 4;
+var base_friction = 0.05;
+
+max_speed = base_max_speed;
+acceleration = base_acceleration;
+turn_speed = base_turn_speed;
+friction = base_friction;
+
+// Přičti globální upgrady pokud existují
+if (variable_global_exists("upgrade_max_speed")) max_speed += global.upgrade_max_speed;
+if (variable_global_exists("upgrade_acceleration")) acceleration += global.upgrade_acceleration;
+if (variable_global_exists("upgrade_turn")) turn_speed += global.upgrade_turn;
+if (variable_global_exists("upgrade_speed")) max_speed += global.upgrade_speed;
+
+// Speciální upgrady
+if (variable_global_exists("upgrade_turbo") && global.upgrade_turbo) {
+    max_speed += 2; // turbo boost
+}
+if (variable_global_exists("upgrade_tires") && global.upgrade_tires) {
+    friction = 0.08;
+    turn_speed += 1;
+}
+if (variable_global_exists("upgrade_brakes") && global.upgrade_brakes) {
+    if (keyboard_check(vk_down)) {
+        friction = 0.2; // silnější brzdění
+    } else if (!(variable_global_exists("upgrade_tires") && global.upgrade_tires)) {
+        friction = base_friction;
+    }
+}
+
+// --- Ovládání ---
 if (can_move) {
-    // Ovládání (šipky)
     if (keyboard_check(vk_up)) speed += acceleration;
     if (keyboard_check(vk_down)) speed -= acceleration;
 
-    // Omezení rychlosti
     if (speed > max_speed) speed = max_speed;
     if (speed < -max_speed * 0.5) speed = -max_speed * 0.5;
 
-    // Otáčení (jen při pohybu)
     if (keyboard_check(vk_left)) direction += turn_speed * (speed / max_speed);
     if (keyboard_check(vk_right)) direction -= turn_speed * (speed / max_speed);
 
-    // Pohyb auta
     x += lengthdir_x(speed, direction);
     y += lengthdir_y(speed, direction);
 
-    // Čas kola a závodu
     if (lap < max_laps) {
         lap_time += 1 / room_speed;
         total_time += 1 / room_speed;
     }
 }
 
-// Tření
+// --- Tření ---
 speed = lerp(speed, 0, friction);
 
-// === Checkpoint ===
+// --- Checkpoint systém ---
 var cp = instance_place(x, y, obj_checkpoint);
 if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
     cp.activated = true;
@@ -39,7 +68,6 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
         lap_time = 0;
         current_checkpoint = 0;
 
-        // Reset checkpointů
         with (obj_checkpoint) {
             activated = false;
             sprite_index = spr_checkpoint;
@@ -52,30 +80,21 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
     }
 }
 
-// === Tráva ===
+// --- Terénní efekty ---
 var gr = instance_place(x, y, obj_grass);
-if (gr != noone) {
-    speed *= 0.5;
-}
+if (gr != noone) speed *= 0.5;
 
-// === Boost ===
 var bst = instance_place(x, y, obj_boost);
-if (bst != noone) {
-    speed *= 1.5;
-}
+if (bst != noone) speed *= 1.5;
 
-// === Bariéra ===
 var br = instance_place(x, y, obj_barier);
-if (br != noone) {
-    speed *= -0.4;
-    // audio_play_sound(snd_bump, 1, false); // Volitelný zvuk nárazu
-}
+if (br != noone) speed *= -0.4;
 
-// === Ghost recording (volitelné) ===
+// --- Ghost data ---
 lap_data[array_length(lap_data)] = [x, y, image_angle];
 
-// Nastavení rotace obrázku podle směru jízdy
+// --- Rotace auta ---
 image_angle = direction;
 
-// === Kamera sleduje auto ===
+// --- Kamera ---
 camera_set_view_pos(view_camera[0], x - camera_get_view_width(view_camera[0]) / 2, y - camera_get_view_height(view_camera[0]) / 2);

@@ -1,17 +1,10 @@
-// Shop variables
-shop_items = [
-    {name: "Zvýšení rychlosti", level: global.car_speed_upgrade_level, base_price: 500}
-];
+// Seznam položek v obchodě
+items = ["Otáčení", "Akcelerace + 5 Km/h", "Boost + 1 Km/h"];
+//prices = [300, 200, 400]; // Ceny odpovídají indexům výše
+prices = [300, 300, 300]; // Ceny odpovídají indexům výše
+selected_item = 0; // Výchozí výběr
 
-selected_item = 0; // index vybraného předmětu
-
-// Vybraná položka v menu
-
-// Položky a ceny
-items = ["Turbo", "Nitro", "Pneumatiky", "Brzdy"];
-prices = [500, 1000, 750, 600];
-
-// Stav zprávy (pro upozornění)
+// Zpráva a čas zobrazení
 message = "";
-message_time = 0;  // počítadlo jak dlouho zobrazit zprávu
-message_duration = 120; // trvání zprávy v step eventech
+message_duration = 120;
+message_time = 0;
