@@ -39,6 +39,7 @@
     {"id":{"name":"f_Countdown","path":"fonts/f_Countdown/f_Countdown.yy",},},
     {"id":{"name":"fnt_esc","path":"fonts/fnt_esc/fnt_esc.yy",},},
     {"id":{"name":"fnt_shop","path":"fonts/fnt_shop/fnt_shop.yy",},},
+    {"id":{"name":"fnt_small","path":"fonts/fnt_small/fnt_small.yy",},},
     {"id":{"name":"obj_ai_car","path":"objects/obj_ai_car/obj_ai_car.yy",},},
     {"id":{"name":"obj_ai_path_point","path":"objects/obj_ai_path_point/obj_ai_path_point.yy",},},
     {"id":{"name":"obj_barier","path":"objects/obj_barier/obj_barier.yy",},},
