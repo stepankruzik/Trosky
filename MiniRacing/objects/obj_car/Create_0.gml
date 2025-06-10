@@ -31,8 +31,24 @@ sprite_index = global.selected_car_sprite;
 image_xscale = 0.092;
 image_yscale = 0.092;
 
+base_speed = max_speed;
+boost_active = false;
+boost_timer = 0;
+boost_duration = 50 * room_speed;    // 10 sekund boost
+boost_cooldown = 15 * room_speed;    // např. 15 sekund cooldown
+boost_cooldown_timer = 0;
+
+
 // Přičtení upgradů k základním hodnotám (pokud existují)
 if (variable_global_exists("upgrade_max_speed")) max_speed += global.upgrade_max_speed;
 if (variable_global_exists("upgrade_acceleration")) acceleration += global.upgrade_acceleration;
 if (variable_global_exists("upgrade_turn")) turn_speed += global.upgrade_turn;
 if (variable_global_exists("upgrade_speed")) max_speed += global.upgrade_speed; // pokud je to samostatný upgrade rychlosti
+
+//Boost
+boost_active = false;
+boost_duration = 30;     // trvání boostu (např. 30 stepů = 0.5 sekundy při 60 FPS)
+boost_timer = 0;
+
+boost_cooldown = 90;     // cooldown mezi boosty (např. 1.5 sekundy)
+boost_cooldown_timer = 0;

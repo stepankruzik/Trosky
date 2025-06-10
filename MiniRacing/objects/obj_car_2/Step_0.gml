@@ -1,3 +1,36 @@
+// Upgradované hodnoty vždy nastavíme z globálních + základních, abychom měli aktuální hodnoty (lepší než měnit jen v Create)
+var base_max_speed = 10;
+var base_acceleration = 0.5;
+var base_turn_speed = 8;
+var base_friction = 0.10;
+
+max_speed = base_max_speed;
+acceleration = base_acceleration;
+turn_speed = base_turn_speed;
+friction = base_friction;
+
+// Přičti globální upgrady pokud existují
+if (variable_global_exists("upgrade_max_speed")) max_speed += global.upgrade_max_speed;
+if (variable_global_exists("upgrade_acceleration")) acceleration += global.upgrade_acceleration;
+if (variable_global_exists("upgrade_turn")) turn_speed += global.upgrade_turn;
+if (variable_global_exists("upgrade_speed")) max_speed += global.upgrade_speed;
+
+// Speciální upgrady
+if (variable_global_exists("upgrade_turbo") && global.upgrade_turbo) {
+    max_speed += 2; // turbo boost
+}
+if (variable_global_exists("upgrade_tires") && global.upgrade_tires) {
+    friction = 0.08;
+    turn_speed += 1;
+}
+if (variable_global_exists("upgrade_brakes") && global.upgrade_brakes) {
+    if (keyboard_check(vk_down)) {
+        friction = 0.2; // silnější brzdění
+    } else if (!(variable_global_exists("upgrade_tires") && global.upgrade_tires)) {
+        friction = base_friction;
+    }
+}
+
 if (can_move) {
     // Ovládání (WSAD)
     if (keyboard_check(ord("W"))) speed += acceleration;

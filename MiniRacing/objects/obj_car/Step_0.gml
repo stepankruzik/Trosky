@@ -1,8 +1,8 @@
 // Upgradované hodnoty vždy nastavíme z globálních + základních, abychom měli aktuální hodnoty (lepší než měnit jen v Create)
-var base_max_speed = 5;
-var base_acceleration = 0.2;
-var base_turn_speed = 4;
-var base_friction = 0.05;
+var base_max_speed = 10;
+var base_acceleration = 0.5;
+var base_turn_speed = 8;
+var base_friction = 0.10;
 
 max_speed = base_max_speed;
 acceleration = base_acceleration;

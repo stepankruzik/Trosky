@@ -30,3 +30,9 @@ sprite_index = spr_car_green;
 //  Zmenšení auta na 50 %
 image_xscale = 0.092;
 image_yscale = 0.092;
+
+// --- Převzetí hráčových upgradů ---
+if (variable_global_exists("upgrade_max_speed")) max_speed += global.upgrade_max_speed;
+if (variable_global_exists("upgrade_acceleration")) acceleration += global.upgrade_acceleration;
+if (variable_global_exists("upgrade_turn")) turn_speed += global.upgrade_turn;
+if (variable_global_exists("upgrade_speed")) max_speed += global.upgrade_speed;

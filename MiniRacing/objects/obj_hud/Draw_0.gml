@@ -23,7 +23,9 @@ if (global.game_mode == "solo") {
 
         draw_text(cx - 100, cy,
             "Solo režim\nHráč - Kolo: " + string(car.lap + 1) + "/" + string(car.max_laps) +
-            "\nČas: " + format_time(car.lap_time));
+            "\nČas: " + format_time(car.lap_time) +
+			"\nPeněženka: $" + string(global.money));
+
 
         if (car.lap >= car.max_laps) {
             // Zobraz finish zprávu doprostřed
@@ -47,7 +49,7 @@ if (global.game_mode == "solo") {
             // Přidání odměny jen jednou
             if (!reward_given && instance_exists(obj_wallet)) {
                 with (obj_wallet) {
-                    add_money(1000);
+                    add_money(250);
                 }
                 reward_given = true;
             }
@@ -69,7 +71,8 @@ else if (global.game_mode == "ai") {
     if (car != noone) {
         draw_text(cx - offset_x, cy,
             "Hráč - Kolo: " + string(car.lap + 1) + "/" + string(car.max_laps) +
-            "\nČas: " + format_time(car.lap_time));
+            "\nČas: " + format_time(car.lap_time)+
+			"\nPeněženka: $" + string(global.money));
 
         if (car.lap >= car.max_laps) {
             draw_set_halign(fa_center);
@@ -89,7 +92,7 @@ else if (global.game_mode == "ai") {
 
             if (!reward_given && instance_exists(obj_wallet)) {
                 with (obj_wallet) {
-                    add_money(1000);
+                    add_money(250);
                 }
                 reward_given = true;
             }
@@ -134,7 +137,8 @@ else if (global.game_mode == "mp") {
 
         draw_text(cx0 - offset_x, cy0,
             "Hráč 1 - Kolo: " + string(car1.lap + 1) + "/" + string(car1.max_laps) +
-            "\nČas: " + format_time(car1.lap_time));
+            "\nČas: " + format_time(car1.lap_time)+
+			"\nPeněženka: $" + string(global.money));
 
         if (car1.lap >= car1.max_laps) {
             draw_set_halign(fa_center);
@@ -154,7 +158,7 @@ else if (global.game_mode == "mp") {
 
             if (!reward_given && instance_exists(obj_wallet)) {
                 with (obj_wallet) {
-                    add_money(1000);
+                    add_money(250);
                 }
                 reward_given = true;
             }
@@ -190,4 +194,4 @@ else if (global.game_mode == "mp") {
             race_finished = true;
         }
     }
-}
+} 

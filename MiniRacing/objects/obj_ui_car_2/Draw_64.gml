@@ -13,7 +13,7 @@ draw_sprite_ext(spr_tacho, 0, cx, cy, 0.7, 0.7, 0, c_white, 1);
 draw_sprite_ext(spr_tacho_needle, 0, cx, cy, 0.7, 0.7, -angle, c_white, 1);
 
 // Vykresli rychlost textově pod tachometr
-var speed_text = string_format(abs(obj_car.speed) * 25, 0, 0) + " km/h"; 
+var speed_text = string_format(abs(obj_car_2.speed) * 25, 0, 0) + " km/h"; 
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 draw_set_color(c_white);draw_text_transformed(cx, cy + 70, speed_text, 2, 2, 0); // zvětšení 2x
