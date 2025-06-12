@@ -91,4 +91,4 @@ lap_time += dt;
 total_time += dt;
 
 // Nastavení rotace obrázku podle směru jízdy
-image_angle = direction;
+image_angle = direction + 180;

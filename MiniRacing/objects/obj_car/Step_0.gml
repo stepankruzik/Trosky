@@ -49,6 +49,16 @@ if (can_move) {
         lap_time += 1 / room_speed;
         total_time += 1 / room_speed;
     }
+	// === Výpočet požadované hlasitosti podle rychlosti ===
+var target_volume = clamp(abs(speed) / max_speed * 1.4, 0.2, 1.2);
+
+// === Plynulé zesílení/zeslabení pomocí interpolace ===
+engine_volume = lerp(engine_volume, target_volume, 0.05);
+
+// === Nastavení hlasitosti zvuku ===
+audio_sound_gain(snd_car4, engine_volume, 0);
+
+audio_sound_gain(snd_music, 0.25, 0);
 }
 
 // --- Tření ---
@@ -98,3 +108,5 @@ image_angle = direction;
 
 // --- Kamera ---
 camera_set_view_pos(view_camera[0], x - camera_get_view_width(view_camera[0]) / 2, y - camera_get_view_height(view_camera[0]) / 2);
+
+

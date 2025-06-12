@@ -1,5 +1,5 @@
 
-audio_play_sound(snd_music, 1, true);
+audio_play_sound(snd_music, 2, true);
 
 window_set_fullscreen(true);
 car_sprites = [spr_car_red, spr_car_blue, spr_car_green, spr_car_yellow];

@@ -52,3 +52,7 @@ boost_timer = 0;
 
 boost_cooldown = 90;     // cooldown mezi boosty (např. 1.5 sekundy)
 boost_cooldown_timer = 0;
+
+engine_volume = 0; // počáteční hlasitost motoru
+audio_play_sound(snd_car4, 1, true); // spustit zvuk motoru ve smyčce hned na začátku
+audio_sound_gain(snd_car4, 0, 0); // začít potichu
