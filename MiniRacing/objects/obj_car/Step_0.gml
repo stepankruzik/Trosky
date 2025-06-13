@@ -50,7 +50,7 @@ if (can_move) {
         total_time += 1 / room_speed;
     }
 	// === Výpočet požadované hlasitosti podle rychlosti ===
-var target_volume = clamp(abs(speed) / max_speed * 1.4, 0.2, 1.2);
+var target_volume = clamp(abs(speed) / max_speed * 1.4, 0.1, 1.2);
 
 // === Plynulé zesílení/zeslabení pomocí interpolace ===
 engine_volume = lerp(engine_volume, target_volume, 0.05);
