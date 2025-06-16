@@ -59,10 +59,10 @@ if (can_move) {
 speed = lerp(speed, 0, friction);
 
 // === Checkpoint ===
-var cp = instance_place(x, y, obj_checkpoint);
+var cp = instance_place(x, y, obj_checkpoint_mp);
 if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
     cp.activated = true;
-    cp.sprite_index = spr_checkpoint_on;
+    cp.sprite_index = spr_checkpoint_mp_on;
     current_checkpoint++;
     show_debug_message("Checkpoint " + string(current_checkpoint - 1) + " aktivován");
 
@@ -73,9 +73,9 @@ if (cp != noone && cp.checkpoint_id == current_checkpoint && !cp.activated) {
         current_checkpoint = 0;
 
         // Reset checkpointů
-        with (obj_checkpoint) {
+        with (obj_checkpoint_mp) {
             activated = false;
-            sprite_index = spr_checkpoint;
+            sprite_index = spr_checkpoint_mp;
         }
 
         if (lap >= max_laps) {
@@ -103,6 +103,8 @@ if (br != noone) {
     speed *= -0.4;
     // audio_play_sound(snd_bump, 1, false); // Volitelný zvuk nárazu
 }
+var bg = instance_place(x, y, obj_tree);
+if (bg != noone) speed *= -0.4;
 
 
 // === Ghost recording (volitelné) ===
