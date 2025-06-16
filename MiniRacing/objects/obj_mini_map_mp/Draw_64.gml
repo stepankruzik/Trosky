@@ -1,91 +1,98 @@
-// -----------------------------------------------------------
-// === MP (split‑screen) → jedna minimapa UPROSTŘED ==========
-// -----------------------------------------------------------
+// === MINIMAPA ===============================================================
+
+// ---------------------------------------------------------------------------
+// společné parametry
+// ---------------------------------------------------------------------------
+var map_sprite    = spr_track2;
+var map_w         = sprite_get_width (map_sprite);
+var map_h         = sprite_get_height(map_sprite);
+var minimap_scale = 0.10;                 // 1/10 originálu
+var minimap_w     = map_w * minimap_scale;
+var minimap_h     = map_h * minimap_scale;
+
+var border_thick  = 3;
+var margin_right  = 20;                   // pro solo / ai
+var margin_bottom = 20;
+
+// manuální posun puntíků (zachováno)
+var dot_off_x     = 0;
+var dot_off_y     = 115;
+var scale_factor  = 0.5;                  // rychlost teček
+
+// ---------------------------------------------------------------------------
+// KAM minimapu umístit?
+// ---------------------------------------------------------------------------
+
+var screen_x, screen_y;
+
 if (global.game_mode == "mp")
 {
-    // --------------------------------------------------------
-    // GUI rozměry
-    // --------------------------------------------------------
-    var scr_w = display_get_gui_width();
-    var scr_h = display_get_gui_height();
+    // **centrální** pozice (uprostřed dole) – IGNORUJE split kamery
+    var gui_w = display_get_gui_width();
+    var gui_h = display_get_gui_height();
 
-    // --------------------------------------------------------
-    // velikost minimapy
-    // --------------------------------------------------------
-    var map_sprite = spr_track2;
-    var minimap_scale = 0.12;                     // 12 %  (klidně změň)
-    var minimap_w  = sprite_get_width(map_sprite)  * minimap_scale;
-    var minimap_h  = sprite_get_height(map_sprite) * minimap_scale;
-
-    // --------------------------------------------------------
-    // kam ji dát  (uprostřed dole, 20 px odspodu)
-    // --------------------------------------------------------
-    var sx = (scr_w - minimap_w) * 0.5;
-    var sy = scr_h - minimap_h - 20;
-
-    // --------------------------------------------------------
-    // podklad + rámeček
-    // --------------------------------------------------------
-    var b = 3;
-    draw_set_color(c_black);
-    draw_rectangle(sx-b, sy-b, sx+minimap_w+b, sy+minimap_h+b, false);
-    draw_sprite_stretched(map_sprite, 0, sx, sy, minimap_w, minimap_h);
-
-    // --------------------------------------------------------
-    // --- DŮLEŽITÉ: počátek sprite trati v roomu  -------------  // ★
-    // --------------------------------------------------------
-    // Pokud sprite "sedí" v (0,0) roomu, nechej 0.
-    // Jinak sem napiš souřadnice levého‑horního rohu trati.
-    //
-    var track_origin_x = 350;   // např. -256  když je posunutá doleva 256 px
-    var track_origin_y = -930;   // např. -128  když je výš o 128 px
-
-    // --------------------------------------------------------
-    // auta
-    // --------------------------------------------------------
-    var car1   = instance_find(obj_car,    0);   // hráč 1
-    var car2   = instance_find(obj_car_2,  0);   // hráč 2
-    var ai_car = instance_find(obj_ai_car, 0);   // AI
-
-    var map_w_orig = sprite_get_width(map_sprite);
-    var map_h_orig = sprite_get_height(map_sprite);
-
-    // --------------------------------------------------------
-    // ruční posun teček (dolů o pár px, ať nejsou přes trať)  // ★
-    // --------------------------------------------------------
-    var dot_off_x = 0;
-    var dot_off_y = 8;   // zvedni/niž podle potřeby
-
-    // --------------------------------------------------------
-    // funkce na vykreslení tečky podle auta                   // ★
-    // --------------------------------------------------------
- // --- upravená funkce (bere 2 nové argumenty navíc)
-function _draw_dot(_car, _col, _origin_x, _origin_y, _map_w, _map_h, _sx, _sy, _minimap_w, _minimap_h, _dot_off_x, _dot_off_y)
+    screen_x = (gui_w - minimap_w) * 0.5;      // střed
+    screen_y = gui_h - minimap_h - margin_bottom;
+}
+else
 {
-    if (_car == noone) exit;
+    // původní chování – pravý spodní roh hlavní kamery
+    var cam = view_camera[0];
+    var cam_x, cam_y;
+    if (cam != -1)
+    {
+        cam_x = camera_get_view_x(cam);
+        cam_y = camera_get_view_y(cam);
+    }
+    else
+    {
+        cam_x = view_xview[0];
+        cam_y = view_yview[0];
+    }
 
-    var nx = clamp((_car.x - _origin_x) / _map_w, 0, 1);
-    var ny = clamp((_car.y - _origin_y) / _map_h, 0, 1);
-
-    var shrink = 0.90;
-    nx = nx * shrink + (1 - shrink) * 0.5;
-    ny = ny * shrink + (1 - shrink) * 0.5;
-
-    var px = _sx + nx * _minimap_w + _dot_off_x;
-    var py = _sy + ny * _minimap_h + _dot_off_y;
-
-    draw_circle_color(px, py, 4, _col, _col, false);
+    screen_x = cam_x + camera_get_view_width (cam) - minimap_w - margin_right - 850; // tvoje offset_x
+    screen_y = cam_y + camera_get_view_height(cam) - minimap_h - margin_bottom - 20; // tvoje offset_y
 }
 
+// ---------------------------------------------------------------------------
+// kreslení rámečku + podkladu
+// ---------------------------------------------------------------------------
+draw_set_color(c_black);
+draw_set_alpha(1);
+draw_rectangle(screen_x - border_thick, screen_y - border_thick,
+               screen_x + minimap_w + border_thick,
+               screen_y + minimap_h + border_thick, false);
 
-var dot_off_x = 0;
-var dot_off_y = 6;  // např. dolů pro zarovnání
+draw_sprite_stretched(map_sprite, 0, screen_x, screen_y,
+                      minimap_w, minimap_h);
 
-// ...
+// ---------------------------------------------------------------------------
+// auta
+// ---------------------------------------------------------------------------
+var car1   = instance_find(obj_car,    0);   // hráč 1
+var car2   = instance_find(obj_car_2,  0);   // hráč 2
+var ai_car = instance_find(obj_ai_car, 0);   // AI
 
-_draw_dot(car1,   c_red,    track_origin_x, track_origin_y, map_w_orig, map_h_orig, sx, sy, minimap_w, minimap_h, dot_off_x, dot_off_y);
-_draw_dot(car2,   c_lime,   track_origin_x, track_origin_y, map_w_orig, map_h_orig, sx, sy, minimap_w, minimap_h, dot_off_x, dot_off_y);
-_draw_dot(ai_car, c_yellow, track_origin_x, track_origin_y, map_w_orig, map_h_orig, sx, sy, minimap_w, minimap_h, dot_off_x, dot_off_y);
+// hráč 1
+if (car1 != noone)
+{
+    var mx1 = screen_x + (car1.x / map_w) * minimap_w * scale_factor + dot_off_x;
+    var my1 = screen_y + (car1.y / map_h) * minimap_h * scale_factor + dot_off_y;
+    draw_circle_color(mx1, my1, 4, c_red, c_red, false);
+}
 
+// hráč 2
+if (car2 != noone)
+{
+    var mx2 = screen_x + (car2.x / map_w) * minimap_w * scale_factor + dot_off_x;
+    var my2 = screen_y + (car2.y / map_h) * minimap_h * scale_factor + dot_off_y;
+    draw_circle_color(mx2, my2, 4, c_lime, c_lime, false);
+}
 
+// AI
+if (ai_car != noone)
+{
+    var mx3 = screen_x + (ai_car.x / map_w) * minimap_w * scale_factor + dot_off_x;
+    var my3 = screen_y + (ai_car.y / map_h) * minimap_h * scale_factor + dot_off_y;
+    draw_circle_color(mx3, my3, 4, c_yellow, c_yellow, false);
 }
