@@ -58,6 +58,7 @@
     {"id":{"name":"obj_ghost","path":"objects/obj_ghost/obj_ghost.yy",},},
     {"id":{"name":"obj_grass","path":"objects/obj_grass/obj_grass.yy",},},
     {"id":{"name":"obj_hud","path":"objects/obj_hud/obj_hud.yy",},},
+    {"id":{"name":"obj_mini_map_mp","path":"objects/obj_mini_map_mp/obj_mini_map_mp.yy",},},
     {"id":{"name":"obj_mini_map","path":"objects/obj_mini_map/obj_mini_map.yy",},},
     {"id":{"name":"obj_race_controller","path":"objects/obj_race_controller/obj_race_controller.yy",},},
     {"id":{"name":"obj_race_setup","path":"objects/obj_race_setup/obj_race_setup.yy",},},
