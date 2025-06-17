@@ -127,7 +127,6 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"rm_shop","path":"rooms/rm_shop/rm_shop.yy",},},
     {"roomId":{"name":"rm_mode_select","path":"rooms/rm_mode_select/rm_mode_select.yy",},},
     {"roomId":{"name":"rm_car_select","path":"rooms/rm_car_select/rm_car_select.yy",},},
     {"roomId":{"name":"rm_menu_settings","path":"rooms/rm_menu_settings/rm_menu_settings.yy",},},
@@ -136,6 +135,7 @@
     {"roomId":{"name":"rm_esc","path":"rooms/rm_esc/rm_esc.yy",},},
     {"roomId":{"name":"Room2_sol","path":"rooms/Room2_sol/Room2_sol.yy",},},
     {"roomId":{"name":"Room2_solo","path":"rooms/Room2_solo/Room2_solo.yy",},},
+    {"roomId":{"name":"rm_shop","path":"rooms/rm_shop/rm_shop.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
