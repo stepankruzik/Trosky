@@ -106,6 +106,15 @@ if (br != noone) {
 var bg = instance_place(x, y, obj_tree);
 if (bg != noone) speed *= -0.4;
 
+var ba = instance_place(x, y, obj_tree_2);
+if (ba != noone) speed *= -0.4;
+
+var bx = instance_place(x, y, obj_cone);
+if (bx != noone) speed *= -0.4;
+
+var bf = instance_place(x, y, obj_tyre);
+if (bf != noone) speed *= -0.4;
+
 
 // === Ghost recording (volitelné) ===
 lap_data[array_length(lap_data)] = [x, y, image_angle];
